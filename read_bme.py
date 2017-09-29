@@ -14,7 +14,7 @@ f.close()
 
 # URL and Header used for HTTP PUT requests.
 url = "https://10.109.143.88:8443/sendsensorvalue/"
-headers = {"Content-Type" : "application/json"}
+headers = {"content-type" : "application/json"}
 
 # Continue to read and display temperature, pressure and humidity values to console.
 while(True):
@@ -42,9 +42,17 @@ while(True):
     f.close()
 
     # Sending out formatted json to MongoDB server, and print response.
-    req = requests.put(url, headers=headers, data=sensor_post, verify=False)
+    try:
+        req = requests.put(url, headers=headers, data=str(sensor_post), verify=False)
 
-    print req
+        print req
+    except requests.exceptions.ConnectionError as ce:
+        print "------------------------------------------Server is unreachable.------------------------------------------"
+        print ce
+        print "----------------------------------------------------------------------------------------------------------"
+
+#    req = requests.put(url, headers=headers, data=str(sensor_post), verify=False)
+#    print req
 
     # Print out the values from sample.
     print "Temperature : " + str(temp) + " C"
