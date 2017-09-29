@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from datetime import datetime
 from bme_280.bme280 import *
 import pendulum
@@ -8,7 +9,7 @@ import ssl
 
 # Loading json template to send as a POST request to MongoDB server.
 f = open('bme_template.json')
-sensor_post = json.loads(f.read())
+sensor_post = json.loads(f.read(), object_pairs_hook=OrderedDict)
 f.close()
 
 # Continue to read and display temperature, pressure and humidity values to console.

@@ -1,20 +1,20 @@
 {
+  "pantherID": 5160328, 
   "values": [
     {
-      "timeStamp": "09.29.2017 01:27 PM", 
       "variableName": "Temperature", 
-      "value": 26.59
+      "timeStamp": "09.29.2017 01:41 PM", 
+      "value": 26.69
     }, 
     {
-      "timeStamp": "09.29.2017 01:27 PM", 
       "variableName": "Pressure", 
-      "value": 1013.7322363782404
+      "timeStamp": "09.29.2017 01:41 PM", 
+      "value": 1013.8192082417119
     }, 
     {
-      "timeStamp": "09.29.2017 01:27 PM", 
       "variableName": "Humidity", 
-      "value": 50.1489361319847
+      "timeStamp": "09.29.2017 01:41 PM", 
+      "value": 47.580547862190855
     }
-  ], 
-  "pantherID": 5160328
+  ]
 }
