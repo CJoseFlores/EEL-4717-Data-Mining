@@ -1,0 +1,2 @@
+* pendulum -> Installed through pip
+* bme280 -> wget -O bme280.py http://bit.ly/bme280py

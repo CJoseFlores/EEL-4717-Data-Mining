@@ -1,5 +1,6 @@
+from datetime import datetime
 from bme_280.bme280 import *
-import datetime
+import pendulum
 import urllib2
 import time
 import json
@@ -15,8 +16,9 @@ while(True):
     temp, pressure, humidity = readBME280All()
 
     # Grab current time, and convert to required format.
-    utc_time = datetime.datetime.utcnow()
-    time_stamp = str(utc_time.strftime("%m.%d.%Y %I:%M %p")) 
+    us_eastern = pendulum.timezone('US/Eastern')
+    local_time = datetime.now(us_eastern)
+    time_stamp = str(local_time.strftime("%m.%d.%Y %I:%M %p")) 
 
     # Parsing values into the json template.
     sensor_post['values'][0]['value'] = temp
