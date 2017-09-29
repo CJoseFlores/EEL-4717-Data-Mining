@@ -2,7 +2,6 @@ from collections import OrderedDict
 from datetime import datetime
 from bme_280.bme280 import *
 import pendulum
-import urllib2
 import time
 import json
 import ssl
@@ -38,13 +37,6 @@ while(True):
     f.close()
 
     # Sending out formatted json to MongoDB server, and print response.
-    req = urllib2.Request(url="https://10.109.143.88:8443/sendsensorvalue/", data=json.dumps(sensor_post),
-            headers={'User-Agent': 'Mozilla/5.0 (X11; U; Linux i686) Gecko/20071127 Firefox/2.0.0.11'}) 
-    context = ssl._create_unverified_context()
-    open_url = urllib2.urlopen(req, context=context)
-    response = open_url.read()
-    
-    print json.dumps(response, indent=2)
 
     # Print out the values from sample.
     print "Temperature : " + str(temp) + " C"
@@ -52,5 +44,5 @@ while(True):
     print "Humidity: " + str(humidity) + "%"
     print "--------------------------------------"
 
-    time.sleep(5)
+    time.sleep(1)
 

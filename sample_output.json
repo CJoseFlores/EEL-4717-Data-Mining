@@ -3,18 +3,18 @@
   "values": [
     {
       "variableName": "Temperature", 
-      "timeStamp": "09.29.2017 02:10 PM", 
-      "value": 25.51
+      "timeStamp": "09.29.2017 02:45 PM", 
+      "value": 24.5
     }, 
     {
       "variableName": "Pressure", 
-      "timeStamp": "09.29.2017 02:10 PM", 
-      "value": 1013.9941964683728
+      "timeStamp": "09.29.2017 02:45 PM", 
+      "value": 1013.4651531273164
     }, 
     {
       "variableName": "Humidity", 
-      "timeStamp": "09.29.2017 02:10 PM", 
-      "value": 45.56902485363101
+      "timeStamp": "09.29.2017 02:45 PM", 
+      "value": 43.03141179325228
     }
   ]
 }
