@@ -2,6 +2,7 @@ from collections import OrderedDict
 from datetime import datetime
 from bme_280.bme280 import *
 import pendulum
+import requests
 import time
 import json
 import ssl
@@ -10,6 +11,10 @@ import ssl
 f = open('bme_template.json')
 sensor_post = json.loads(f.read(), object_pairs_hook=OrderedDict)
 f.close()
+
+# URL and Header used for HTTP PUT requests.
+url = "https://10.109.143.88:8443/sendsensorvalue/"
+headers = {"Content-Type" : "application/json"}
 
 # Continue to read and display temperature, pressure and humidity values to console.
 while(True):
@@ -37,6 +42,9 @@ while(True):
     f.close()
 
     # Sending out formatted json to MongoDB server, and print response.
+    req = requests.put(url, headers=headers, data=sensor_post, verify=False)
+
+    print req
 
     # Print out the values from sample.
     print "Temperature : " + str(temp) + " C"
