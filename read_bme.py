@@ -4,6 +4,7 @@ import pendulum
 import urllib2
 import time
 import json
+import ssl
 
 # Loading json template to send as a POST request to MongoDB server.
 f = open('bme_template.json')
@@ -15,7 +16,7 @@ while(True):
     # Grab a tuple that returns temp, pressure and humidity.
     temp, pressure, humidity = readBME280All()
 
-    # Grab current time, and convert to required format.
+    # Grab current time in EST, and convert to required format.
     us_eastern = pendulum.timezone('US/Eastern')
     local_time = datetime.now(us_eastern)
     time_stamp = str(local_time.strftime("%m.%d.%Y %I:%M %p")) 
@@ -31,6 +32,18 @@ while(True):
 
     # Printing out json for verification.
     print json.dumps(sensor_post, indent=2)
+    f = open('sample_output.json', 'w')
+    f.write(json.dumps(sensor_post, indent=2))
+    f.close()
+
+    # Sending out formatted json to MongoDB server, and print response.
+    req = urllib2.Request(url="https://10.109.143.88:8443/sendsensorvalue/", data=json.dumps(sensor_post),
+            headers={'User-Agent': 'Mozilla/5.0 (X11; U; Linux i686) Gecko/20071127 Firefox/2.0.0.11'}) 
+    context = ssl._create_unverified_context()
+    open_url = urllib2.urlopen(req, context=context)
+    response = open_url.read()
+    
+    print json.dumps(response, indent=2)
 
     # Print out the values from sample.
     print "Temperature : " + str(temp) + " C"
@@ -38,5 +51,5 @@ while(True):
     print "Humidity: " + str(humidity) + "%"
     print "--------------------------------------"
 
-    time.sleep(1)
+    time.sleep(5)
 

@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "timeStamp": "09.29.2017 01:27 PM", 
+      "variableName": "Temperature", 
+      "value": 26.59
+    }, 
+    {
+      "timeStamp": "09.29.2017 01:27 PM", 
+      "variableName": "Pressure", 
+      "value": 1013.7322363782404
+    }, 
+    {
+      "timeStamp": "09.29.2017 01:27 PM", 
+      "variableName": "Humidity", 
+      "value": 50.1489361319847
+    }
+  ], 
+  "pantherID": 5160328
+}
