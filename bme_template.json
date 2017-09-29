@@ -1,0 +1,20 @@
+{
+    "pantherID":5160328,
+    "values":[
+        {
+            "variableName":"Temperature",
+            "timeStamp":"MM.DD.YYYY hh:mm AM/PM",
+            "value":0.00
+        },
+        {
+            "variableName":"Pressure",
+            "timeStamp":"MM.DD.YYYY hh:mm AM/PM",
+            "value":0.00
+        },
+        {
+            "variableName":"Humidity",
+            "timeStamp":"MM.DD.YYYY hh:mm AM/PM",
+            "value":0.00
+        }
+    ]
+}
