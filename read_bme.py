@@ -28,8 +28,8 @@ while(True):
 
     # Parsing values into the json template.
     sensor_post['values'][0]['value'] = temp
-    sensor_post['values'][1]['value'] = pressure
-    sensor_post['values'][2]['value'] = humidity
+    sensor_post['values'][1]['value'] = round(pressure, 5)
+    sensor_post['values'][2]['value'] = round(humidity, 5)
 
     # Parsing timestamps into the json template.
     for sensor_dict in sensor_post['values']:
